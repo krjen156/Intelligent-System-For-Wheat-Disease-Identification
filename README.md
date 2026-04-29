@@ -20,7 +20,7 @@ Understand model decisions through visual explanation
 - Intelligent System for Wheat Disease Identification.mp4 is a video review of the application. 
 
 
-##  Features
+##  Features of the application
 - Multi-model comparison (ResNet50, VGG16, WheatNetwork)
 - Image upload (JPG, PNG, JPEG)
 - Prediction confidence and class probabilities
