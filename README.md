@@ -50,12 +50,12 @@ Generalized classification (fewer disease groups)
 
 ## Installation (Bash)
 1. git clone https://github.com/krjen156/Intelligent-System-For-Wheat-Disease-Identification.git
-2. cd Intelligent-System-For-Wheat-Disease-Identification
-3. python -m venv .venv
-4. .venv\Scripts\activate   # Windows
-5. pip install -r requirements.txt
-6. streamlit run app.py
-
+2. cd Intelligent-System-For-Wheat-Disease-Identification/system APPLICATION
+4. python -m venv .venv
+5. .venv\Scripts\activate   # Windows
+6. pip install -r requirements.txt
+7. streamlit run app.py
+Nb. You must train the models first (.keras). They were to big to include on GitHub.
 
 ## Limitations
 ❗ Only works with wheat plant images
