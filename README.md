@@ -12,3 +12,62 @@ Upload wheat images
 Compare predictions across models
 View confidence scores
 Understand model decisions through visual explanation
+
+## Project Structure:
+- WPD contains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the WPD dataset
+- LWDC contrains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the LWDC dataset
+- 
+
+
+##  Features
+- Multi-model comparison (ResNet50, VGG16, WheatNetwork)
+- Image upload (JPG, PNG, JPEG)
+- Prediction confidence and class probabilities
+- Grad-CAM visualization (model interpretability)
+- Web-based interface (Streamlit)
+
+##  Models Used
+Model	Description:
+ResNet50	Deep residual network with strong generalization
+VGG16	Classic CNN architecture with stable performance
+WheatNetwork	Custom CNN designed for wheat disease detection
+
+Each model is trained on:
+
+WPD (Wheat Plant Diseases) dataset
+LWDC (Large Wheat Disease Classification) dataset
+
+##  Datasets
+WPD Dataset – Multi-class wheat disease dataset (Kaggle) - https://www.kaggle.com/datasets/kushagra3204/wheat-plant-diseases
+LWDC Dataset – Simplified dataset with fewer classes - https://www.kaggle.com/datasets/taibariaz/large-wheat-disease-classification-dataset
+
+These datasets allow comparison between:
+
+Complex classification (many diseases)
+Generalized classification (fewer disease groups)
+
+
+## Installation (Bash)
+1. git clone https://github.com/krjen156/Intelligent-System-For-Wheat-Disease-Identification.git
+2. cd Intelligent-System-For-Wheat-Disease-Identification
+3. python -m venv .venv
+4. .venv\Scripts\activate   # Windows
+5. pip install -r requirements.txt
+6. streamlit run app.py
+
+
+## Limitations
+❗ Only works with wheat plant images
+❗ Does not verify if the image contains wheat
+❗ Performance depends on image quality and similarity to training data
+❗ Models are static (no real-time training)
+
+## Future Work
+Real-time mobile deployment
+Integration with weather/soil data
+Larger and more diverse datasets
+Improved generalization across environments
+
+This project is part of a bachelor thesis.
+The full paper (methodology, models, and results) can be found in the repository.
+
