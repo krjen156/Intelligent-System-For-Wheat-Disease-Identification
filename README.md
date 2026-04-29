@@ -14,8 +14,8 @@ View confidence scores
 Understand model decisions through visual explanation
 
 ## Project Structure:
-- WPD contains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the WPD dataset
-- LWDC contrains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the LWDC dataset
+- WPD contains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the WPD dataset. ResNet50, VGG16 and WheatNetwork are also tested on a final evaluation dataset in FINAL_EVALUATION.
+- LWDC contrains the jupyter notebooks for training ResNet50, VGG16, InceptionV3, MobileNetV2 and WheatNetwork on the LWDC dataset. ResNet50, VGG16 and WheatNetwork are also tested on a final evaluation dataset in FINAL_EVALUATION.
 - system APPLICATION contrains the .py files for Intelligent System for Wheat Disease Identification
 - Intelligent System for Wheat Disease Identification.mp4 is a video review of the application. 
 
