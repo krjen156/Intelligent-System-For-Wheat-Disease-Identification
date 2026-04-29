@@ -21,60 +21,36 @@ def find_nested_base_model(model):
 def safe_call_layer(layer, x):
     if isinstance(x, (list, tuple)):
         x = x[0]
-
-    # Check what input dimension the layer expects
     expected_ndim = None
     input_spec = getattr(layer, "input_spec", None)
-
     if input_spec is not None:
         if isinstance(input_spec, (list, tuple)):
             input_spec = input_spec[0]
         expected_ndim = getattr(input_spec, "ndim", None)
-
-    # Only flatten/pool when the next layer expects 2D input
     if expected_ndim == 2 and len(x.shape) > 2:
         x = tf.reduce_mean(x, axis=list(range(1, len(x.shape) - 1)))
-
-    # Fallback: Dense layers always need 2D input
     elif isinstance(layer, tf.keras.layers.Dense) and len(x.shape) > 2:
         x = tf.reduce_mean(x, axis=list(range(1, len(x.shape) - 1)))
-
     try:
         return layer(x, training=False)
     except TypeError:
         return layer(x)
-
-
 def normalize_heatmap(heatmap):
     heatmap = tf.maximum(heatmap, 0)
     max_value = tf.reduce_max(heatmap)
-
     if max_value == 0:
         return None
-
     heatmap = heatmap / max_value
     return heatmap.numpy()
 
 
 def make_gradcam_heatmap(img_array, model, pred_index):
-    """
-    Works for:
-    - nested transfer-learning models: input -> VGG16/ResNet50 -> head
-    - sequential custom CNNs: input -> Conv2D -> ... -> Dense
-    """
-
-    # Build model once if needed
     _ = model(img_array, training=False)
-
     nested_base, nested_index = find_nested_base_model(model)
-
-    # Case 1: nested base model, e.g. VGG16 or ResNet50
     if nested_base is not None:
         last_conv = find_last_conv_layer_in_layers(nested_base.layers)
-
         if last_conv is None:
             return None
-
         conv_model = tf.keras.Model(
             inputs=nested_base.input,
             outputs=[last_conv.output, nested_base.output]
