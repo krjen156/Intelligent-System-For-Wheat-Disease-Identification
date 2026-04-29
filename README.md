@@ -27,17 +27,6 @@ Understand model decisions through visual explanation
 - Grad-CAM visualization (model interpretability)
 - Web-based interface (Streamlit)
 
-##  Models Used
-Model	Description:
-ResNet50	Deep residual network with strong generalization
-VGG16	Classic CNN architecture with stable performance
-WheatNetwork	Custom CNN designed for wheat disease detection
-
-Each model is trained on:
-
-WPD (Wheat Plant Diseases) dataset
-LWDC (Large Wheat Disease Classification) dataset
-
 ##  Datasets
 WPD Dataset – Multi-class wheat disease dataset (Kaggle) - https://www.kaggle.com/datasets/kushagra3204/wheat-plant-diseases
 LWDC Dataset – Simplified dataset with fewer classes - https://www.kaggle.com/datasets/taibariaz/large-wheat-disease-classification-dataset
